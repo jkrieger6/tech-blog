@@ -1,0 +1,10 @@
+     <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/dashboard">Dashborad</a></li>
+        <li><a href="/login">Login</a></li>
+      </ul>
+    </nav>
+{{#each comments as |comment|}}
+  {{comment.author}}: {{comment.body}}
+{{/each}}
