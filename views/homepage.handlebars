@@ -1,0 +1,28 @@
+<header>
+<nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        {{#if user}}
+        <li><a href="/logout">Logout</a></li>
+        {{else}}
+        <li><a href="/login">Login</a></li>
+        {{/if}}
+    </ul>
+</nav>
+</header>
+<main>
+{{#if blogPost}}
+<div class="card">
+    {{#each blogPost}}
+    <h3>{{title}}</h3>
+    <p>Posted by {{author}} on {{formatDate blogPost}}</p>
+    {{/each}}
+</div>
+{{else}}
+<p>No posts available.</p>
+{{/if}}
+<div class="button-container">
+    <a href="/newpost">Add New Blog Post</a>
+</div>
+</main>
