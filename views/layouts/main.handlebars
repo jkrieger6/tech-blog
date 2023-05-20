@@ -1,24 +1,35 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Tech Blog</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
+
 <body>
   <header>
     <h1>Tech Blog</h1>
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/dashboard">Dashborad</a></li>
-        <li><a href="/login">Login</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        {{#if user}}
+          <li><a href="/logout">Logout</a></li>
+        {{else}}
+          <li><a href="/login">Login</a></li>
+          <li><a href="/signup">Sign Up</a></li>
+        {{/if}}
       </ul>
     </nav>
   </header>
   
   <main>
-    {{{body}}}
+    {{#if posts.length}}
+      <h2>Recent Posts</h2>
+      <ul>
+        {{#each posts}}
+          <li>
+            <h3>{{title}}</h3>
+            <p>Posted by {{author}} on {{formatDate createdAt}}</p>
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>No posts available.</p>
+    {{/if}}
   </main>
   
   <footer>
