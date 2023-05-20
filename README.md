@@ -1,19 +1,23 @@
 # Tech Blog
 A CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well.
 ## Project Description
-
+A CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. This application follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication. The user can create an account and login to create, edit, and delete posts. The user can also comment on other users posts. The user can also logout of their account with the ability to log back in.
 
 ## Visuals
-* For a walkthrough video on how to use this application, please click the following link: 
+* This website is live at the following URL:
 
 ## Installation
 * Node version 16 is required to run this application
-* To install Nodes required packages use the following commands 
+* To install Nodes required packages use the following command(s):
 ```
-npm init -y
+npm install
+npm install mysql2
+npm install sequelize
+npm install dotenv
 npm install express
-npm install mysql
-npm install sequwelize
+npm install express-handlebars
+npm install express-session
+npm install connect-session-sequelize
 ```
 * Clone repository using GitHub
 ``` 
@@ -22,13 +26,9 @@ git clone https://github.com/jkrieger6/tech-blog.git
 * Made using the latest versions of Visual Studio Code
 * Made with the latest version of GitHub
 * Made using the latest version of Node.js
-* Made using the latest version of Insomnia Core
+* Tested using the latest version of Insomnia Core
 
 ## Usage
-* To start this application, clone the repository to your local machine and run the following command(s) in your terminal:
-```
-
-```
 
 ## License
 * This application is covered under the [MIT](https://choosealicense.com/licenses/mit/) license
