@@ -1,10 +1,38 @@
-     <nav>
+<body>
+  <header>
+    <h1>Welcome, {{username}}!</h1>
+    <nav>
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/dashboard">Dashborad</a></li>
-        <li><a href="/login">Login</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/logout">Logout</a></li>
       </ul>
     </nav>
-{{#each comments as |comment|}}
-  {{comment.author}}: {{comment.body}}
-{{/each}}
+  </header>
+  
+  <main>
+    <h2>Your Blog Posts</h2>
+    {{#if posts.length}}
+      <ul>
+        {{#each posts}}
+          <li>
+            <h3>{{title}}</h3>
+            <p>Posted on {{formatDate createdAt}}</p>
+            <a href="/posts/{{_id}}">Read more</a>
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>No posts available.</p>
+    {{/if}}
+    
+    <a href="/newpost">Add New Blog Post</a>
+  </main>
+  
+  <footer>
+    <p>&copy; 2023 Tech Blog. All rights reserved.</p>
+  </footer>
+  
+  <script src="main.js"></script>
+</body>
+</html>
