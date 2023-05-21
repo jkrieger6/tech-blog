@@ -10,7 +10,7 @@ router.get('/', withAuth, async (req, res) => {
                 user_id: req.session.user_id
             },
             include: [{
-                model: User,
+                model: User, Comment,
                 attributes: ['name']
             }]
         });
@@ -29,7 +29,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
             include: [{
-                model: User,
+                model: User, Comment,
                 attributes: ['name']
             }]
         });
@@ -56,7 +56,7 @@ router.get('/comments/:id', withAuth, async (req, res) => {
                 post_id: req.params.id
             },
             include: [{
-                model: User,
+                model: User, BlogPost,
                 attributes: ['name']
             }]
         });
