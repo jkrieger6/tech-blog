@@ -1,6 +1,41 @@
 const router = require('express').Router();
-const { BlogPost } = require('../../models');
+const { title } = require('process');
+const { BlogPost, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
+
+// GET all blog posts
+router.get('/', async (req, res) => {
+    try {
+      const blogPostData = await BlogPost.findAll({
+        include: [
+          {
+            model: User, Comment,
+            attributes: ['name', title, 'content', 'date_created'],
+          },
+        ],
+      });
+      res.status(200).json(blogPostData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+// GET one blog post
+router.get('/:id', async (req, res) => {
+    try {
+      const blogPostData = await BlogPost.findByPk(req.params.id, {
+        include: [
+          {
+            model: User, Comment,
+            attributes: ['name', title, 'content', 'date_created'],
+          },
+        ],
+      });
+      res.status(200).json(blogPostData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 // CREATE new blog post
 router.post('/', withAuth, async (req, res) => {
