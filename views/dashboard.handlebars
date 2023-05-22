@@ -10,7 +10,12 @@
       </ul>
     </nav>
   </header>
-  
+  <!-- If the user is logged in, render the content -->
+{{#if loggedIn}}
+<!-- Otherwise, provide a link to login -->
+{{else}}
+<a href="/login">You must login or signup first to view this page</a>
+{{/if}}
   <main>
     <h2>Your Blog Posts</h2>
     {{#if posts.length}}
