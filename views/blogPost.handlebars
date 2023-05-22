@@ -1,7 +1,12 @@
 {{!-- View page for whena user clicks on a single blog post --}}
 
-{{blogPost.title}}
-{{blogPost.body}}
-{{formatDate blogPost.createdAt}}
-{{author.username}}
-{{addComment}}
+<section class="container">
+  <h3 class="blog-post">{{blog-post.name}}</h3>
+  <h4>Title: {{}}</h4>
+  <h4>Comments: {{}}</h4>
+  <section class="flex-row justify-center">
+    {{#each gallery.paintings as |painting|}}
+    {{> painting-details}}
+    {{/each}}
+  </section>
+</section>
