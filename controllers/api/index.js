@@ -3,13 +3,12 @@ const router = require("express").Router();
 const userRoutes = require("./userRoutes");
 const blogRoutes = require("./blogRoutes");
 const commentRoutes = require("./commentRoutes");
-const homeRoutes = require("../home-routes");
+const withAuth = require("../../utils/auth");
 
 // Prefix all of the above routes with /api
 router.use("/users", userRoutes);
 router.use("/posts", blogRoutes);
 router.use("/comments", commentRoutes);
-router.use("/", homeRoutes);
 
 // Exporting the router
 module.exports = router;
