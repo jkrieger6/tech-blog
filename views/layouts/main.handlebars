@@ -1,4 +1,14 @@
 {{!-- this is the landing page when the user arrives --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Blog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
 <body>
   <header>
     <h1>Tech Blog</h1>
@@ -16,19 +26,7 @@
   </header>
   
   <main>
-    {{#if blogPost}}
-      <h2>Recent Posts</h2>
-      <ul>
-        {{#each blogPost}}
-          <li>
-            <h3>{{title}}</h3>
-            <p>Posted by {{author}}</p>
-          </li>
-        {{/each}}
-      </ul>
-    {{else}}
-      <p>No posts available.</p>
-    {{/if}}
+    
   </main>
   
   <footer>
