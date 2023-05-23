@@ -5,7 +5,7 @@ const homeRoutes = require('./home-routes.js');
 const withAuth = require('../utils/auth');
 
 router.use('/api', apiRoutes);
-router.use('/', dashboardRoutes);
+router.use('/dashboard', dashboardRoutes);
 router.use('/', homeRoutes);
 
 module.exports = router;
