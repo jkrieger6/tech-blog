@@ -1,17 +1,4 @@
 {{! this is the homepage the user can navigate to }}
-<header>
-  <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/dashboard">Dashboard</a></li>
-      {{#if user loggedIn}}
-        <li><a href="/logout">Logout</a></li>
-      {{else}}
-        <li><a href="/login">Login</a></li>
-      {{/if}}
-    </ul>
-  </nav>
-</header>
 <main>
   {{#if blogPost}}
     <div class="card">
