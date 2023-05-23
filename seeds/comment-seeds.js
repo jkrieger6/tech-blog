@@ -8,17 +8,17 @@ const commentData = [
     },
     {
         comment_text: 'Comment 2',
-        user_id: 2,
-        blogPost_id: 2
+        user_id: 1,
+        blogPost_id: 1
     },
     {
         comment_text: 'Comment 3',
-        user_id: 3,
+        user_id: 1,
         blogPost_id: 3
     },
     {
         comment_text: 'Comment 4',
-        user_id: 4,
+        user_id: 1,
         blogPost_id: 4
     },
 ];
