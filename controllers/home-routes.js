@@ -1,14 +1,11 @@
 const router = require("express").Router();
-const { Post, User, Comment } = require("../models");
+const { User, Comment, BlogPost } = require("../models");
 
 // GET all posts for homepage
 router.get("/", async (req, res) => {
   try {
-    const postData = await Post.findAll({
-      include: [
-        {
-          model: BlogPost,
-          attributes: ["title", "content", "created_at"],
+    const postData = await BlogPost.findAll({
+      
           include: [
             {
             model: User,
@@ -16,12 +13,11 @@ router.get("/", async (req, res) => {
             },
             {
               model: Comment,
-              attributes: ["content", "created_at"],
+              attributes: ["comment_text"],
             },
           ],
         },
-      ],
-    });
+    );
     const posts = postData.map((post) => post.get({ plain: true }));
     res.render("homepage", {
       posts,
@@ -35,7 +31,7 @@ router.get("/", async (req, res) => {
 // GET one post
 router.get("/:id", async (req, res) => {
   try {
-    const postData = await Post.findByPk(req.params.id, {
+    const postData = await BlogPost.findByPk(req.params.id, {
       include: [
         {
           model: BlogPost,
@@ -47,7 +43,7 @@ router.get("/:id", async (req, res) => {
             },
             {
               model: Comment,
-              attributes: ["content", "created_at"],
+              attributes: ["comment_text"],
             },
           ],
         },
