@@ -9,9 +9,13 @@ router.get('/', async (req, res) => {
       const blogPostData = await BlogPost.findAll({
         include: [
           {
-            model: User, Comment,
-            attributes: ['name', title, 'content', 'date_created'],
+            model: User,
+            attributes: ['name'],
           },
+          {
+            model: Comment,
+            attributes: ['title, content, date_created'],
+          }
         ],
       });
       res.status(200).json(blogPostData);
@@ -26,8 +30,18 @@ router.get('/:id', async (req, res) => {
       const blogPostData = await BlogPost.findByPk(req.params.id, {
         include: [
           {
-            model: User, Comment,
-            attributes: ['name', title, 'content', 'date_created'],
+            model: User,
+            attributes: ['name'],
+          },
+          {
+            model: Comment,
+            attributes: ['title, content, date_created'],
+            include: [
+              {
+                model: User,
+                attributes: ['name'],
+              },
+            ],
           },
         ],
       });
@@ -54,7 +68,12 @@ router.post('/', withAuth, async (req, res) => {
 // UPDATE blog post
 router.put('/:id', withAuth, async (req, res) => {
     try {
-      const blogPostData = await BlogPost.update(req.body, {
+      const blogPostData = await BlogPost.update(
+         {
+          title: req.body.title,
+          content:  req.body.content,
+         },
+         {
         where: {
           id: req.params.id,
           user_id: req.session.user_id,
