@@ -1,37 +1,41 @@
-{{!-- this is the landing page when the user arrives --}}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tech Blog</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+{{! this is the landing page when the user arrives }}
 
-<body>
-  <header>
-    <h1>Tech Blog</h1>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/dashboard">Dashboard</a></li>
-        {{#if user}}
-          <li><a href="/logout">Logout</a></li>
-        {{else}}
-          <li><a href="/login">Login</a></li>
-        {{/if}}
-      </ul>
-    </nav>
-  </header>
-  {{#each BlogPost as |BlogPost|}}
-  <main>
-    {{body}}
-  </main>
-  
-  <footer>
-    <p>&copy; 2023 Tech Blog. All rights reserved.</p>
-  </footer>
-  
-  <script src="main.js"></script>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Blog</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Tech Blog</h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/dashboard">Dashboard</a></li>
+          {{#if logged_in}}
+            <li><a href="/logout">Logout</a></li>
+          {{else}}
+            <li><a href="/login">Login</a></li>
+          {{/if}}
+        </ul>
+      </nav>
+    </header>
+    <main>
+      {{{body}}}
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Tech Blog. All rights reserved.</p>
+    </footer>
+
+    <script src="/js/addComment.js"></script>
+    <script src="/js/addPost.js"></script>
+    <script src="/js/deletePost.js"></script>
+    <script src="/js/editPost.js"></script>
+    <script src="/js/login.js"></script>
+    <script src="/js/logout.js"></script>
+  </body>
 </html>
