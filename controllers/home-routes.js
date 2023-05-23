@@ -8,9 +8,17 @@ router.get("/", async (req, res) => {
       include: [
         {
           model: BlogPost,
-          User,
-          Comment,
           attributes: ["title", "content", "created_at"],
+          include: [
+            {
+            model: User,
+            attributes: ["name"],
+            },
+            {
+              model: Comment,
+              attributes: ["content", "created_at"],
+            },
+          ],
         },
       ],
     });
@@ -31,15 +39,23 @@ router.get("/:id", async (req, res) => {
       include: [
         {
           model: BlogPost,
-          User,
-          Comment,
           attributes: ["title", "content", "created_at"],
+          include: [
+            {
+              model: User,
+              attributes: ["name"],
+            },
+            {
+              model: Comment,
+              attributes: ["content", "created_at"],
+            },
+          ],
         },
       ],
     });
     const post = postData.get({ plain: true });
     res.render("BlogPost", {
-      ...post,
+      post: post,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
