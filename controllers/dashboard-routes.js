@@ -10,9 +10,13 @@ router.get('/', withAuth, async (req, res) => {
                 user_id: req.session.user_id
             },
             include: [{
-                model: User, Comment,
+                model: User,
                 attributes: ['name']
-            }]
+            },
+        {
+            model: Comment,
+            attributes: ['name']
+        }]
         });
         const posts = postData.map((post) => post.get({ plain: true }));
         res.render('all', {
@@ -56,9 +60,13 @@ router.get('/comments/:id', withAuth, async (req, res) => {
                 post_id: req.params.id
             },
             include: [{
-                model: User, BlogPost,
+                model: User,
                 attributes: ['name']
-            }]
+            },
+        {
+            model: Post,
+            attributes: ['title']
+        }]
         });
         const comments = commentData.map((comment) => comment.get({ plain: true }));
         res.render('view-comments', {
