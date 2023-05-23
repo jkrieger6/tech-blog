@@ -1,13 +1,12 @@
 {{! this is the homepage the user can navigate to }}
-<main>
-  {{#if blogPost}}
+
+  {{#if posts}}
     <div class="card">
-      {{#each blogPost}}
+      {{#each posts}}
         <h3>{{title}}</h3>
-        <p>Posted by {{author}} on {{formatDate blogPost}}</p>
+        <p>Posted by {{author}} on {{formatDate createdAt}}</p>
       {{/each}}
     </div>
   {{else}}
     <p>No posts available.</p>
   {{/if}}
-</main>
