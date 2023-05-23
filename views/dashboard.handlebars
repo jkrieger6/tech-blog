@@ -1,15 +1,5 @@
 {{!-- after the user has logged in/ signed up, this is the dashboard page --}}
-<body>
-  <header>
-    <h1>Welcome, {{username}}!</h1>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/dashboard">Dashboard</a></li>
-        <li><a href="/logout">Logout</a></li>
-      </ul>
-    </nav>
-  </header>
+
   <!-- If the user is logged in, render the content -->
 {{#if loggedIn}}
 <!-- Otherwise, provide a link to login -->
