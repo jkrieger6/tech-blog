@@ -29,7 +29,7 @@ router.get("/", async (req, res) => {
 });
 
 // Login route
-router.get("/login", (req, res) => {
+router.render("/login", (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/");
     return;
