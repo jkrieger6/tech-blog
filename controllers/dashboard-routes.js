@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-// get all posts for dashboard
+// GET route for user dashboard, only post form the user should be shown
 router.get('/', withAuth, async (req, res) => {
     try {
         const postData = await Post.findAll({
@@ -11,15 +11,11 @@ router.get('/', withAuth, async (req, res) => {
             },
             include: [{
                 model: User,
-                attributes: ['name']
-            },
-        {
-            model: Comment,
-            attributes: ['name']
-        }]
+                attributes: ['title', 'content', 'created_at']
+            }]
         });
         const posts = postData.map((post) => post.get({ plain: true }));
-        res.render('all', {
+        res.render('dashboard', {
             layout: 'dashboard',
             posts
         });
@@ -28,32 +24,8 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
-// get one post for dashboard
-router.get('/edit/:id', withAuth, async (req, res) => {
-    try {
-        const postData = await Post.findByPk(req.params.id, {
-            include: [{
-                model: User, Comment,
-                attributes: ['name']
-            }]
-        });
-
-        if (postData) {
-            const post = postData.get({ plain: true });
-            res.render('edit-post', {
-                layout: 'dashboard',
-                post
-            });
-        } else {
-            res.status(404).end();
-        }
-    } catch (err) {
-        res.redirect('login');
-    }
-});
-
 // View all comments for a post
-router.get('/comments/:id', withAuth, async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
     try {
         const commentData = await Comment.findAll({
             where: {
@@ -69,7 +41,7 @@ router.get('/comments/:id', withAuth, async (req, res) => {
         }]
         });
         const comments = commentData.map((comment) => comment.get({ plain: true }));
-        res.render('view-comments', {
+        res.render('blogPost', {
             layout: 'dashboard',
             comments
         });
