@@ -2,8 +2,8 @@ const addPostFormHandler = async (event) => {
     event.preventDefault();
 
     // Get the title and text from the form
-    const title = document.querySelector('#post-title').value.trim();
-    const text = document.querySelector('#post-text').value.trim();
+    const title = document.querySelector('#newPost').value.trim();
+    const text = document.querySelector('#postContent').value.trim();
 
     // If both fields have content
     if (title && text) {
