@@ -1,7 +1,7 @@
 {{! this is the homepage the user can navigate to }}
 
   {{#if posts}}
-    <div class="card">
+    <div class="card" id="BlogPost">
       {{#each posts}}
         <h3>{{title}}</h3>
         <p>Posted by {{user_id}} on {{formatDate createdAt}}</p>
