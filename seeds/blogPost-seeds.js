@@ -9,7 +9,7 @@ const blogPostData = [
     {
         title: 'Blog Post 2',
         content: 'This is the second blog post.',
-        user_id: 1
+        user_id: 2
     },
     {
         title: 'Blog Post 3',

@@ -4,7 +4,7 @@
     <div class="card">
       {{#each posts}}
         <h3>{{title}}</h3>
-        <p>Posted by {{author}} on {{formatDate createdAt}}</p>
+        <p>Posted by {{user_id}} on {{formatDate createdAt}}</p>
         {{#if comments}}
           <p>{{content}}</p>
         {{else}}
