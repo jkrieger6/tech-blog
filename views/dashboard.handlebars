@@ -1,6 +1,7 @@
 {{!-- after the user has logged in/ signed up, this is the dashboard page --}}
   <!-- If the user is logged in, render the content -->
 {{#if loggedIn}}
+<div class="card">
  <h2>Your Blog Posts</h2>
     {{#if posts}}
       <ul>
@@ -8,12 +9,13 @@
           <li>
             <h3>{{title}}</h3>
             <p>Posted on {{formatDate createdAt}}</p>
-            <button href="/posts/{{_id}}">Read more</button>
+            <button href="/blogPost/{{_id}}">Read more</button>
           </li>
       </ul>
     {{else}}
       <p>No posts available.</p>
     {{/if}}
+    </div>
     
    <div class="button-container">
     <a href="/views/blogPost.handlebars">Add New Blog Post</a>
