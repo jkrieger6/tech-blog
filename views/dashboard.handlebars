@@ -2,22 +2,21 @@
   <!-- If the user is logged in, render the content -->
 {{#if loggedIn}}
  <h2>Your Blog Posts</h2>
-    {{#if posts.length}}
+    {{#if posts}}
       <ul>
-        {{#each posts}}
+        {{ title }}
           <li>
             <h3>{{title}}</h3>
             <p>Posted on {{formatDate createdAt}}</p>
-            <a href="/posts/{{_id}}">Read more</a>
+            <button href="/posts/{{_id}}">Read more</button>
           </li>
-        {{/each}}
       </ul>
     {{else}}
       <p>No posts available.</p>
     {{/if}}
     
    <div class="button-container">
-    <a href="/newpost">Add New Blog Post</a>
+    <a href="/views/blogPost.handlebars">Add New Blog Post</a>
 </div>
   <div>
 <!-- Otherwise, provide a link to login -->
