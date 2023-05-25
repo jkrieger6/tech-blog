@@ -5,11 +5,6 @@
       {{#each posts as |posts|}}
         <h3>{{title}}</h3>
         <p>Posted by {{user_id}} on {{formatDate createdAt}}</p>
-        {{#if posts.comments}}
-          <p>{{posts.comment_text}}</p>
-        {{else}}
-          <p>No comment yet.</p>
-        {{/if}}
       {{/each}}
     </div>
   {{else}}
