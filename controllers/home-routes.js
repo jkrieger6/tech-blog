@@ -28,6 +28,15 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Dashboard route
+router.get("/dashboard", (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect("/login");
+    return;
+  }
+  res.render("dashboard");
+});
+
 // Login route
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
