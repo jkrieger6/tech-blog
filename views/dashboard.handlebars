@@ -18,8 +18,15 @@
             </a>
             <p>{{content}}</p>
             <p>Created on: {{formatDate created_at}}</p>
+            <p>Comments:
+            <ul>
+              {{#each comments formatDate created_at}}
+                <li>{{this}}</li>
+              {{/each}}
+              </p>
           </li>
-          <button id="view-post" href="/blogPost/{{_id}}">Read more</button>
+          <button id="update-post" href="/blogPost/{{_id}}">Update</button>
+          <button id="delete-post" href="/blogPost/{{_id}}">Delete</button>
         {{/each}}
       </ul>
     {{else}}
