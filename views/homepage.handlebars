@@ -4,6 +4,7 @@
     <div class="card" id="BlogPost">
       {{#each posts as |posts|}}
         <h3>{{title}}</h3>
+        <button id="view-post" href="/blogPost/{{_id}}">Read more</button>
         <p>Posted by {{user.name}} on {{formatDate createdAt}}</p>
       {{/each}}
     </div>
