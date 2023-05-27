@@ -11,7 +11,10 @@
   <button class="btn btn-warning" id="update">Edit</button>
   <div>
   <h4>Comments: {{blogpost.comments}}</h4>
-  <button class="btn btn-success" id="comment">Add Comment</button>
+  <div class="form-group">
+  <input type="text" id="comment" placeholder="Add a comment">
+  <button class="btn btn-success" id="commentBtn">Add Comment</button>
+  </div>
  </div>
   <section class="flex-row justify-center">
     {{#each BlogPost as |BlogPost|}}

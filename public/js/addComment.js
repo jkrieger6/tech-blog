@@ -2,7 +2,7 @@ const addCommentFormHandler = async (event) => {
     event.preventDefault();
 
     // Get the comment text from the form
-    const comment_text = document.querySelector('#comment-text').value.trim();
+    const comment_text = document.querySelector('#comment').value.trim();
 
     // Get the post id from the url
     const post_id = window.location.toString().split('/')[
