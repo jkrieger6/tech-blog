@@ -2,14 +2,14 @@ const { User } = require('../models');
 
 const userData = [
     {
-        "name": "Test",
-        "email": "test@test.com",
-        "password": "Password"
+        name: "Test",
+        email: "test@test.com",
+        password: bcrypt.hashSync("Password", 10)
     },
     {
-        "name": "Tom",
-        "email": "tom@test.com",
-        "password": "Testing"
+        name: "Tom",
+        email: "tom@test.com",
+        password: bcrypt.hashSync("Testing", 10)
     }
 ]
 
