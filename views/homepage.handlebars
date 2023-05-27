@@ -4,7 +4,7 @@
     <div class="card" id="BlogPost">
       {{#each posts as |posts|}}
         <h3>{{title}}</h3>
-        <p>Posted by {{user_id}} on {{formatDate createdAt}}</p>
+        <p>Posted by {{user.name}} on {{formatDate createdAt}}</p>
       {{/each}}
     </div>
   {{else}}
