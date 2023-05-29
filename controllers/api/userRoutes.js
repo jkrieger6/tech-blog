@@ -51,7 +51,8 @@ router.post("/", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({
-       where: { email: req.body.email } });
+      where: { email: req.body.email },
+    });
 
     if (!userData) {
       res
@@ -69,7 +70,7 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-// Once the user successfully logs in, set up the sessions variable 'loggedIn'
+    // Once the user successfully logs in, set up the sessions variable 'loggedIn'
     req.session.save(() => {
       req.session.user.id = userData.id;
       req.session.logged_in = true;

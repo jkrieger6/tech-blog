@@ -1,5 +1,6 @@
 # Tech Blog
 A CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well.
+
 ## Project Description
 A CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. This application follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication. The user can create an account and login to create, edit, and delete posts. The user can also comment on other users posts. The user can also logout of their account with the ability to log back in.
 
@@ -47,6 +48,7 @@ git clone https://github.com/jkrieger6/tech-blog.git
 
 ## Roadmap
 * There are currently no future plans for this application. 
+
 ## Authors and acknowledgment
 * Jake Krieger
 [GitHub](https://github.com/jkrieger6?tab=repositories "GitHub Repos")
