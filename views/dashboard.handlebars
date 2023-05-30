@@ -1,9 +1,7 @@
 {{!-- after the user has logged in/ signed up, this is the dashboard page --}}
   <!-- If the user is logged in, render the content -->
-{{#title}}Dashboard{{/title}}
 {{#if loggedIn}}
 {{!-- Content section --}}
-{{#content "dashboard"}}
   <div class="dashboard">
     <h1>Welcome to Your Dashboard</h1>
     
@@ -29,7 +27,7 @@
           <button id="delete-post" href="/blogPost/{{_id}}">Delete</button>
         {{/each}}
       </ul>
-    
+    {{/if}}
     {{!-- Add a new blog post --}}
     <h2>Create a New Blog Post:</h2>
     <form action="/blog" method="POST">
@@ -48,4 +46,3 @@
 <a>You must login or signup first to view this page</a>
 {{/if}}
   </div>
-{{/content}}
