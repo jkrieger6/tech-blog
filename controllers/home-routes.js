@@ -35,19 +35,11 @@ router.get("/posts/:id", withAuth, async (req, res) => {
   }
 });
 
-// Dashboard route
-router.get("/dashboard", (req, res) => {
-  if (!req.session.logged_in) {
-    res.redirect("/login");
-    return;
-  }
-  res.render("dashboard");
-});
 
 // Login route
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect("/");
+    res.redirect("/dashboard");
     return;
   }
   res.render("login");
