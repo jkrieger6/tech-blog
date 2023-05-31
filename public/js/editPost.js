@@ -7,8 +7,8 @@ const editPost = async (event) => {
   ];
 
   // Get the title and text from the form
-  const title = document.querySelector("#post-title").value.trim();
-  const text = document.querySelector("#post-text").value.trim();
+  const title = document.getElementById("post-title").value.trim();
+  const text = document.getElementById("post-text").value.trim();
 
   // If both fields have content
   if (title && text) {
@@ -28,4 +28,4 @@ const editPost = async (event) => {
   }
 };
 
-document.querySelector(".edit-post-form").addEventListener("submit", editPost);
+document.getElementById("update-post").addEventListener("submit", editPost);
