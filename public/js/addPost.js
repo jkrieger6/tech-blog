@@ -24,5 +24,5 @@ const addPostFormHandler = async (event) => {
 };
 
 document
-  .querySelector(".new-post-form")
+  .getElementById("newPost")
   .addEventListener("submit", addPostFormHandler);

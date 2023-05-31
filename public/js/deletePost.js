@@ -18,4 +18,4 @@ const deletePost = async (event) => {
   }
 };
 
-document.getElementById("#delete").addEventListener("click", deletePost);
+document.getElementById("delete-post").addEventListener("click", deletePost);
