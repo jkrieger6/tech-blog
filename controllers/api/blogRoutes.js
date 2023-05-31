@@ -86,7 +86,7 @@ router.put("/:id", withAuth, async (req, res) => {
       return;
     }
 
-    res.status(200).json(blogPostData);
+    res.redirect("/dashboard");
   } catch (err) {
     res.status(500).json(err);
   }
