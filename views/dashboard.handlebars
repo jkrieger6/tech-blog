@@ -1,22 +1,21 @@
 {{!-- after the user has logged in/ signed up, this is the dashboard page --}}
   <!-- If the user is logged in, render the content -->
-{{#if loggedIn}}
+{{!-- {{#if loggedIn}} --}}
 {{!-- Content section --}}
   <div class="container" id="dashboard">
     <h1>Welcome to Your Dashboard</h1>
     
-    {{!-- Display user's blog posts --}}
-    {{#if posts}}
+   {{#if posts}}
     <div class="card" id="posts">
       <h2>Your Blog Posts:</h2>
       <ul>
         {{#each posts}}
           <li>
             <a href="/blog/{{id}}">
-              <h3>{{title}}</h3>
+              <h3>{{title}}</h3> --}}
             </a>
             <p>{{content}}</p>
-            <p>Created on: {{formatDate created_at}}</p>
+            <p>Created on: {{formatDate created_at}}</p> --}}
             <p>Comments:
             <ul>
               {{#each comments formatDate created_at}}
@@ -25,9 +24,9 @@
               </p>
           </li>
         {{/each}}
-      </ul>
+      </ul> --}}
       </div>
-    {{/if}}
+    {{/if}} --}}
     {{!-- Add a new blog post --}}
     <div class="newPost">
     <h2>Create a New Blog Post:</h2>
@@ -44,8 +43,7 @@
     </form>
     </div>
     
-  </div>
-  {{/if}}
+</div>
   <script src="/js/addPost.js"></script>
   <script src="/js/viewBlogPost.js"></script>
   <script src="/js/logout.js"></script>
