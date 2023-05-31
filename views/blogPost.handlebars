@@ -7,13 +7,29 @@
     Author: {{blogpost.author}}
     Date: {{blogpost.date}}
     </div>
+  <p>{{blogpost.content}}</p>
+  <div>
   <button class="btn btn-danger" id="delete">Delete</button>
-  <button class="btn btn-warning" id="update">Edit</button>
+  {{!-- form to update post if logged in  --}}
+  {{#if loggedIn}}
+  <form action="/blog/{{blogpost.id}}" method="PUT">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="text" id="post-title" name="title" required>
+    </div>
+    <div class="form-group">
+      <label for="content">Content:</label>
+      <textarea id="content" name="post-text" required></textarea>
+    </div>
+    <button type="submit" id="update">Update Post</button>
+  </form>
+  {{/if}}
+  </div>
   <div>
   <h4>Comments: {{blogpost.comments}}</h4>
   <div class="form-group">
   <input type="text" id="comment" placeholder="Add a comment">
-  <button class="btn btn-success" id="commentBtn">Add Comment</button>
+  <button class="btn btn-success" type="submit" id="commentBtn">Add Comment</button>
   </div>
  </div>
   <section class="flex-row justify-center">
