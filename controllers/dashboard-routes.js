@@ -10,6 +10,8 @@ router.get("/", withAuth, async (req, res) => {
       where: {
         user_id: req.session.user_id,
       },
+      attributes: { exclude: ["password"] },
+      order: [["created_at", "DESC"]],
       include: [
         {
           model: User,
@@ -20,6 +22,7 @@ router.get("/", withAuth, async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
     res.render("dashboard", {
       posts,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     console.log(err);
