@@ -24,18 +24,6 @@
               {{/each}}
               </p>
           </li>
-          {{!-- update post form --}}
-          <div class="updatePost">
-            <form class="updatePost" method="PUT">
-              <div class="form-group">
-                <label for="title">Title:</label>
-                <input type="text" id="post-title" name="title" required>
-                <label for="content">Content:</label>
-                <textarea id="post-text" name="content" required></textarea>
-              </div>
-               <button type="submit" id="update-post" href="/blogPost/{{_id}}">Update</button>
-            </form>
-          <button id="delete-post" href="/blogPost/{{_id}}">Delete</button>
         {{/each}}
       </ul>
       </div>
