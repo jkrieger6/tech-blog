@@ -1,43 +1,39 @@
 {{!-- View page for when a user clicks on a single blog post --}}
-
+{{ #each blogPost }}
 <section class="container" id="post-container">
-  <h3 class="blog-post">{{{blog-post.name}}}</h3>
-  <p> {{blogpost.title}}</p>
+  <h3>{{{blogPost.name}}}</h3>
+  <p> {{blogPost.title}}</p>
   <div>
-    Author: {{blogpost.author}}
-    Date: {{blogpost.date}}
+    Author: {{blogPost.author}}
+    Date: {{blogPost.date}}
     </div>
-  <p>{{blogpost.content}}</p>
+  <p>{{blogPost.content}}</p>
   <div>
   <button class="btn btn-danger" id="delete">Delete</button>
   {{!-- form to update post if logged in  --}}
   {{#if loggedIn}}
-  <form action="/api/post/{{blogpost.id}}" method="PUT">
+  <form action="/api/post/{{blogPost.id}}" method="PUT">
     <div class="form-group">
       <label for="title">Title:</label>
-      <input type="text" id="post-title" name="title" required>
+      <input type="text" id="post-title" name="title" value="{{blogPost.title}}" required>
     </div>
     <div class="form-group">
       <label for="content">Content:</label>
-      <textarea id="content" name="post-text" required></textarea>
+      <textarea id="content" name="content" required></textarea>
     </div>
     <button type="submit" id="update">Update Post</button>
   </form>
   {{/if}}
   </div>
   <div>
-  <h4>Comments: {{blogpost.comments}}</h4>
+  <h4>Comments: {{blogPost.comments}}</h4>
   <div class="form-group">
   <input type="text" id="comment" placeholder="Add a comment">
   <button class="btn btn-success" type="submit" id="commentBtn">Add Comment</button>
   </div>
  </div>
-  <section class="flex-row justify-center">
-    {{#each BlogPost as |BlogPost|}}
-    {{> blogPost}}
-    {{/each}}
-  </section>
 </section>
+{{/each}}
  <script src="/js/addComment.js"></script>
  <script src="/js/deletePost.js"></script>
  <script src="/js/editPost.js"></script>
