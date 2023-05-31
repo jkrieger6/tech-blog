@@ -12,7 +12,7 @@
   <button class="btn btn-danger" id="delete">Delete</button>
   {{!-- form to update post if logged in  --}}
   {{#if loggedIn}}
-  <form action="/blog/{{blogpost.id}}" method="PUT">
+  <form action="/api/post/{{blogpost.id}}" method="PUT">
     <div class="form-group">
       <label for="title">Title:</label>
       <input type="text" id="post-title" name="title" required>

@@ -15,7 +15,7 @@ const viewPostHandler = async (event) => {
 
   // If successful, redirect the browser to the dashboard page
   if (response.ok) {
-    document.location.replace(`/posts/${post_id}`);
+    document.location.replace(`/api/posts/${post_id}`);
   }
 };
 
